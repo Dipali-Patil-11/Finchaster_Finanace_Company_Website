@@ -1,0 +1,103 @@
+ <!-- Callback Start -->
+    <div class="container-fluid callback my-5 pt-5">
+        <div class="container pt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="bg-white border rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                            <p class="d-inline-block border rounded  fw-semi-bold py-1 px-3">Get In Touch
+                            </p>
+                            <h1 class="display-5 mb-5">Login</h1>
+                        </div>
+                        <div class="row g-3">
+                       <form onsubmit="return validate()">	
+                            <div class="col-sm-6">
+         <form  method="post">
+                                                                   <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="mail" placeholder="Your Email" name="mail"/>
+                                    <label for="mail">Your Email</label>
+ 			            <span id='mailspan'class='text-danger'>&nbsp;</span>
+                                </div>
+                            </div>
+                                                        <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="password" placeholder="Password" name="password"/>
+                                    <label for="password">Password</label>
+                                    <span id='passwordspan'class='text-danger'>&nbsp;</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword"/>
+                                    <label for="confirmpassword">confirm password</label>
+                                   <span id='confirmpasswordspan'class='text-danger'>&nbsp;</span>
+                                     
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <input class="btn btn-primary w-100 py-3" type="submit" value="submit now"></input>
+                            </div>
+                        </div>
+                     </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Callback End -->
+
+
+<script>
+function validate()
+{
+let Email=document.getElementById("mail");
+let password=document.getElementById("password");
+let confirmpassword=document.getElementById("confirmpassword");
+let Emailspan=document.getElementById("mailspan");
+let passwordspan=document.getElementById("passwordspan");
+let confirmpasswordspan=document.getElementById("confirmpasswordspan");
+
+
+if(Email.value=="")
+{
+ Emailspan.innerHTML="Email must be filled!"
+ return false
+}else if(Email.value.indexOf('@')<=0)
+{
+ Emailspan.innerHTML="Invalid position of @!"
+ return false
+}else if((Email.value.charAt(Email.value.length-4)!=".")&&(Email.value.charAt(Email.value.length-3)!="."))
+{
+ Emailspan.innerHTML="Invalid position of '.'!"
+ return false
+}else{
+Emailspan.innerHTML = "";
+}
+
+
+if(password.value=="")
+{
+passwordspan.innerHTML="please fill the Password field";
+return false;
+}else{
+passwordspan.innerHTML="";
+}
+
+if(confirmpassword.value=="")
+{
+confirmpasswordspan.innerHTML="please Confirm Password";
+return false;
+}else{
+confirmpasswordspan.innerHTML = "";
+}
+if(password.value!=confirmpassword.value)
+{
+confirmpasswordspan.innerHTML="Your password does not match";
+return false;
+}else{
+confirmpasswordspan.innerHTML = "";
+}
+}
+
+</script>
